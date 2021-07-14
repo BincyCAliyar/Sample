@@ -11,6 +11,7 @@
 		4601B2CC1DB04078CE969629 /* Pods_MyProduct_MyProductUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 246583181A964F26F86144D5 /* Pods_MyProduct_MyProductUITests.framework */; };
 		B7B80596303DD3C9596507DD /* Pods_MyProductTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042377A32F62B25DE168C63B /* Pods_MyProductTests.framework */; };
 		DD088AB0269D9A010069950B /* MyProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD088AAF269D9A010069950B /* MyProductCollectionViewCell.swift */; };
+		DD088AC2269EF7480069950B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD088AC1269EF7480069950B /* Extension.swift */; };
 		DD4CA01F269CA25400C5F10C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4CA01E269CA25400C5F10C /* AppDelegate.swift */; };
 		DD4CA021269CA25400C5F10C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4CA020269CA25400C5F10C /* SceneDelegate.swift */; };
 		DD4CA023269CA25400C5F10C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4CA022269CA25400C5F10C /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		538B217559D09AA062FB5631 /* Pods-MyProduct-MyProductUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProduct-MyProductUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyProduct-MyProductUITests/Pods-MyProduct-MyProductUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9E450ABB47601B840FA0322 /* Pods_MyProduct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyProduct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD088AAF269D9A010069950B /* MyProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		DD088AC1269EF7480069950B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DD4CA01B269CA25400C5F10C /* MyProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4CA01E269CA25400C5F10C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD4CA020269CA25400C5F10C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		DD4CA012269CA25300C5F10C = {
 			isa = PBXGroup;
 			children = (
+				DD088AC1269EF7480069950B /* Extension.swift */,
 				DD4CA062269CA3AE00C5F10C /* Model.swift */,
 				DD4CA01D269CA25400C5F10C /* MyProduct */,
 				DD4CA034269CA25B00C5F10C /* MyProductTests */,
@@ -415,6 +418,7 @@
 				DD4CA023269CA25400C5F10C /* ViewController.swift in Sources */,
 				DD4CA01F269CA25400C5F10C /* AppDelegate.swift in Sources */,
 				DD4CA021269CA25400C5F10C /* SceneDelegate.swift in Sources */,
+				DD088AC2269EF7480069950B /* Extension.swift in Sources */,
 				DD4CA063269CA3AE00C5F10C /* Model.swift in Sources */,
 				DD088AB0269D9A010069950B /* MyProductCollectionViewCell.swift in Sources */,
 			);

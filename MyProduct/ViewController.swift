@@ -20,13 +20,15 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     var params:[String:String] = [:]
     var sParams = ""
     var sURL:String = String()
+   
     var url = NSURL()
     var currentPageDetails = [CurrentPageDetails] ()
     var myCurrentPageDetails:[CurrentPageDetails] = [CurrentPageDetails] ()
     var pageDetails:PageDetails?
     var isLoading: Bool = false
+    var flag:[Bool] = Array(repeating: false, count: 33)
     private let spacing:CGFloat = 12.0
-    var lastContentOffset: CGFloat = 0
+    var index = 0
     @IBOutlet weak var myCollectionView: UICollectionView!
     @IBOutlet weak var myProductSearch_TxtFld: UITextField!
     
@@ -39,12 +41,25 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         myProductSearch_TxtFld.layer.masksToBounds = true
         self.myCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         ApiCall()
+        print(flag)
     }
 
-    
+    @IBAction func MyProductSwitch(_ sender: UISwitch)
+    {
+        if sender.isOn == true
+        {
+        index = sender.tag
+        flag.insert(true, at: index)
+        }
+        else
+        {
+            index = sender.tag
+            flag.insert(false, at: index)
+        }
+        
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        print(currentPageDetails.count)
         return currentPageDetails.count
     }
     
@@ -62,6 +77,17 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         }
         cell.productName.text = currentPageDetails[indexPath.row].productName
         cell.productPrice.text = currentPageDetails[indexPath.row].price
+        cell.productSwitch.tag = indexPath.row
+        if flag[indexPath.row] == true
+        {
+            cell.productSwitch.isOn = true
+            
+        }
+        else
+        {
+            cell.productSwitch.isOn = false
+            
+        }
         return cell
     }
     
@@ -84,11 +110,15 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
 //    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
 //    {
 //
-//        if ( page < (pageDetails?.lastPage)!)
-//         {
-//            page = page + 1
-//            productGenerate(page: page)
-//         }
+//        if !isLoading
+//        {
+//            if page < (pageDetails?.lastPage)!
+//            {
+//                page = page + 1
+//                productGenerate(page: page)
+//            }
+//
+//        }
 //
 //    }
 //    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -101,7 +131,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         let offsetY = scrollView.contentOffset.y
         //let offsetX = scrollView.contentOffset.x
         let contentHeight = scrollView.contentSize.height
-        
+
 
         if offsetY > contentHeight - scrollView.frame.height
 
@@ -113,13 +143,8 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
                     page = page + 1
                     productGenerate(page: page)
                 }
-
             }
-
         }
-
-
-
     }
     func ApiCall()
     {
@@ -178,7 +203,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
             {
             case .success:
                 //self.currentPageDetails.removeAll()
-            print(response)
+           // print(response)
                 if let jsonData = response.data
                 {
 
@@ -190,7 +215,6 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
                     self.isLoading = false
                     self.currentPageDetails.append(contentsOf: self.currentPageDetails)
                     self.myCollectionView.reloadData()
-                    
                 }
 
                 break
